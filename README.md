@@ -23,49 +23,35 @@ Usage
 Example:
 -----
 
-	<RelativeLayout
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:tools="http://schemas.android.com/tools"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"	
-		tools:context=".MainActivity">
-
-		<!-- Rest of Layout -->
-
-		<com.haarman.supertooltips.ToolTipRelativeLayout
-			android:id="@+id/activity_main_tooltipRelativeLayout"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent" />
-	</RelativeLayout>
-
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ToolTipRelativeLayout toolTipRelativeLayout = (ToolTipRelativeLayout) findViewById(R.id.activity_main_tooltipRelativeLayout);
 		
-		myToolTipView = toolTipRelativeLayout.showToolTipForView(
-                new ToolTip()
-                        .withText("A beautiful View")
-                        .withColor(Color.RED)
-                        .withShadow(true)
-						.withAnimationType(ToolTip.ANIMATIONTYPE_FROMTOP),
-                findViewById(R.id.activity_main_redtv));
-        myToolTipView.setOnToolTipViewClickedListener(MainActivity.this);
+		
+        ToolTipOptions tto = new ToolTipOptions()
+            .withText("A beautiful View")
+            .withColor(Color.RED)
+            .withShadow(true)
+			.withAnimationType(ToolTip.ANIMATIONTYPE_FROMTOP);
+
+		ToolTipView ttv = new ToolTipView(this);
+		ttv.setToolTipOptions(tto);
+		ttv.showAt(this.findViewById(R.id.activity_main_redtv);
+		ttv.setOnToolTipViewClickedListener(MainActivity.this);
 	}
 	
 	
 
 ToolTip customization
 -----
-You can customize the `ToolTip` in several ways:
+You can customize the `ToolTipView` in several ways:
 
-* Specify a content text using `ToolTip.setText()`.
-* Set a color using `ToolTip.setColor()`.
-* Specify whether to show a shadow or not with `ToolTip.setShadow()`.
-* Specify how to animate the ToolTip: from the view itself or from the top, using `ToolTip.setAnimationType()`.
-* Set your own custom content View using `ToolTip.setContentView()`.
+* Specify a content text using `ToolTipOptions.withText()`.
+* Set a color using `ToolTipOptions.withColor()`.
+* Specify whether to show a shadow or not with `ToolTipOptions.withShadow()`.
+* Specify how to animate the ToolTipView: from the view itself or from the top, using `ToolTipOptions.withAnimationType()`.
+* Set your own custom content View using `ToolTipOptions.withContentView()`.
 
 See the examples.
 
