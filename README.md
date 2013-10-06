@@ -17,8 +17,7 @@ Setup
 Usage
 -----
 
-* In your layout xml file, add the `ToolTipRelativeLayout` (`com.haarman.supertooltips.ToolTipRelativeLayout`) with height and width of `match_parent`. Make sure this view is on top!
-* Find the `ToolTipRelativeLayout` in your code, and start adding `ToolTips`!
+* Simply create `ToolTipView` with `ToolTipOptions`
 
 Example:
 -----
