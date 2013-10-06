@@ -40,9 +40,4 @@
         android:layout_centerInParent="true"
         android:text="@string/orange" />
 
-    <com.haarman.supertooltips.ToolTipRelativeLayout
-        android:id="@+id/activity_main_tooltipframelayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
 </RelativeLayout>
